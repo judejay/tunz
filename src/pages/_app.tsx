@@ -2,8 +2,7 @@ import { ChakraProvider, extendTheme } from '@chakra-ui/react'
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import "reset-css";
-import { color } from 'framer-motion';
-import { link } from 'fs';
+
 
 const theme = extendTheme({
  colors: {
@@ -49,5 +48,9 @@ components: {
 } as any);
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  return (
+    <ChakraProvider theme={theme}>
+      <Component {...pageProps} />
+    </ChakraProvider>
+  ); 
 }
