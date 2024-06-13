@@ -17,6 +17,8 @@ import {
 } from 'react-icons/md'
 import NextImage from 'next/image';
 import NextLink from 'next/link'; // Add this line to import NextLink
+
+
 const menuItems = [
   {
     icon: MdHome,
@@ -55,7 +57,7 @@ const Sidebar = () => {
         </Box>
         <Box marginBottom="20px">
           <List spacing={3}>
-            {menuItems.map((menu, index) => (
+            {menuItems.map((menu) => (
               <ListItem paddingX="20px" fontSize="16px" key={menu.label}>
               <LinkBox>
                 <NextLink href={menu.route} passHref>
