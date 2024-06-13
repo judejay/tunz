@@ -1,6 +1,6 @@
 import { Box } from "@chakra-ui/layout";
 import { ReactNode } from "react";
-import Sidebar from "./sidebar";
+//import Sidebar from "./sidebar";
 import dynamic from 'next/dynamic'
 interface PlayerLayoutProps {
   children: ReactNode;
