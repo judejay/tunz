@@ -16,7 +16,7 @@ import {
   MdFavorite,
 } from "react-icons/md";
 import NextImage from "next/image";
-import NextLink from "next/link"; // Add this line to import NextLink
+import NextLink from "next/link";
 import { Link } from "@chakra-ui/react";
 
 const menuItems = [
