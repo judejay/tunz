@@ -19,31 +19,34 @@ import NextImage from "next/image";
 import NextLink from "next/link";
 import { Link } from "@chakra-ui/react";
 
-const menuItems = [
+const navMenu = [
   {
+    name: "Home",
     icon: MdHome,
-    label: "Home",
     route: "/",
   },
   {
+    name: "Search",
     icon: MdSearch,
-    label: "Search",
     route: "/search",
   },
   {
+    name: "Your Library",
     icon: MdLibraryMusic,
-    label: "Your Library",
     route: "/library",
   },
+];
+
+const musicMenu = [
   {
+    name: "Create Playlist",
     icon: MdPlaylistAdd,
-    label: "Create Playlist",
-    route: "/create-playlist",
+    route: "/playlist/create",
   },
   {
+    name: "Liked Songs",
     icon: MdFavorite,
-    label: "Liked Songs",
-    route: "/liked-songs",
+    route: "/liked",
   },
 ];
 
@@ -62,8 +65,8 @@ const Sidebar = () => {
         </Box>
         <Box marginBottom="20px">
           <List spacing={3}>
-            {menuItems.map((menu) => (
-              <ListItem paddingX="20px" fontSize="16px" key={menu.label}>
+            {navMenu.map((menu) => (
+              <ListItem paddingX="20px" fontSize="16px" key={menu.name}>
                 <LinkBox>
                   <Link as={NextLink} href={menu.route}>
                     <ListIcon
@@ -71,7 +74,25 @@ const Sidebar = () => {
                       color="white"
                       marginRight="20px"
                     />
-                    {menu.label}
+                    {menu.name}
+                  </Link>
+                </LinkBox>
+              </ListItem>
+            ))}
+          </List>
+        </Box>
+        <Box marginBottom="20px">
+          <List spacing={3}>
+            {musicMenu.map((menu) => (
+              <ListItem paddingX="20px" fontSize="16px" key={menu.name}>
+                <LinkBox>
+                  <Link as={NextLink} href={menu.route}>
+                    <ListIcon
+                      as={menu.icon as React.ElementType}
+                      color="white"
+                      marginRight="20px"
+                    />
+                    {menu.name}
                   </Link>
                 </LinkBox>
               </ListItem>
