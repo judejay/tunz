@@ -50,6 +50,10 @@ const musicMenu = [
   },
 ];
 
+const playlist = new Array(50)
+  .fill(0)
+  .map((_, index) => `Playlist ${index + 1}`);
+
 const Sidebar = () => {
   return (
     <Box
@@ -81,6 +85,7 @@ const Sidebar = () => {
             ))}
           </List>
         </Box>
+
         <Box marginBottom="20px">
           <List spacing={3}>
             {musicMenu.map((menu) => (
@@ -93,6 +98,20 @@ const Sidebar = () => {
                       marginRight="20px"
                     />
                     {menu.name}
+                  </Link>
+                </LinkBox>
+              </ListItem>
+            ))}
+          </List>
+        </Box>
+        <Divider color="gray.800" />
+        <Box height="50%" overflowY="auto" paddingY="20px">
+          <List>
+            {playlist.map((name) => (
+              <ListItem paddingX="20px" key={name}>
+                <LinkBox key={name} paddingX="20px">
+                  <Link as={NextLink} href={`/playlist/${name}`}>
+                    <LinkOverlay color="white">{name}</LinkOverlay>
                   </Link>
                 </LinkBox>
               </ListItem>
