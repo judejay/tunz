@@ -109,9 +109,9 @@ const Sidebar = () => {
           <List>
             {playlist.map((name) => (
               <ListItem paddingX="20px" key={name}>
-                <LinkBox key={name} paddingX="20px">
+                <LinkBox key={name}>
                   <Link as={NextLink} href={`/playlist/${name}`}>
-                    <LinkOverlay color="white">{name}</LinkOverlay>
+                    <LinkOverlay color="grey">{name}</LinkOverlay>
                   </Link>
                 </LinkBox>
               </ListItem>
