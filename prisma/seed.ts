@@ -25,3 +25,10 @@ const run = async () => {
         }
     ));
 };
+
+
+run().catch((e) => {
+    throw e
+}).finally(async () => {
+    await prisma.$disconnect();
+})
