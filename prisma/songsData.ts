@@ -1,4 +1,4 @@
-export const artistsData: {
+export const songsData: {
     name: string
     songs: any[]
   }[] = [

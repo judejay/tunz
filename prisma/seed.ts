@@ -1,12 +1,12 @@
 import {  PrismaClient } from '@prisma/client';
 import becryp from 'bcrypt';
-import { artistsData } from './songsData';
+import { songsData  } from './songsData';
 
 const prisma = new PrismaClient();
 
 const run = async () => {
     await Promise.all(
-        artistsData.map(async (artist) => {
+        songsData.map(async (artist) => {
             return prisma.artist.upsert({
                 where: { name: artist.name },
                 update: {},
@@ -14,8 +14,8 @@ const run = async () => {
                   name: artist.name,
                   songs: {
                     create: artist.songs.map((song) => ({
-                      name: song.name,
-                      title: song.title, 
+                        name: artist.name,
+                      title: song.name, 
                       duration: song.duration,
                       url: song.url,
                     })),
