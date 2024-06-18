@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { SWRConfig } from "swr";
 import { useAuth } from "../lib/mutations";
 import { useState } from "react";
+import NextImage from "next/image";
 
 export const AuthForm: React.FC<{ mode: "signup" | "signin" }> = ({ mode }) => {
   const [email, setEmail] = useState("");
@@ -13,7 +14,7 @@ export const AuthForm: React.FC<{ mode: "signup" | "signin" }> = ({ mode }) => {
   return (
     <Box height="100vh" width="100vh" bg="black" color="white">
       <Flex justify="center" align="center" height="100px">
-        hello
+        <NextImage alt="logo" src="/logo.svg" width={100} height={100} />
       </Flex>
       <Flex justify="center" align="center" height="calc(100% - 100px)">
         <Box width="400px" p={4} bg="white" borderRadius={8}>
@@ -37,7 +38,7 @@ export const AuthForm: React.FC<{ mode: "signup" | "signin" }> = ({ mode }) => {
               setIsLoading(true);
               await useAuth(mode, { email, password });
               setIsLoading(false);
-              router.push("/dashboard");
+              router.push("/");
             }}
             isLoading={isLoading}
             colorScheme="blue"
